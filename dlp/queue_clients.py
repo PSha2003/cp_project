@@ -38,7 +38,6 @@ class InMemoryQueueClient(QueueClient):
 
     async def add_message(self, message):
         await self.queue.put(message)
-        print(self.queue.qsize())
 
     async def get_messages(self):
         messages = []
