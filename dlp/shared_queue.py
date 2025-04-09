@@ -5,7 +5,7 @@ use_real_sqs = False
 
 # Replace with SQSQueueClient if using AWS
 if use_real_sqs:
-    queue_client = SQSQueueClient(queue_url="https://sqs.us-east-1.amazonaws.com/123456789012/your-queue-name")
+    queue_client = SQSQueueClient(queue_url="https://sqs.us-east-1.amazonaws.com/123456789012/your-queue-name", region="us-east-1")
 else:
     #queue_client = InMemoryQueueClient()
     queue_client = RedisQueueClient()

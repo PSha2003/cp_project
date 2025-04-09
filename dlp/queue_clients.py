@@ -13,9 +13,10 @@ class SQSQueueClient(QueueClient):
     def __init__(self, queue_url, region="us-east-1"):
         self.queue_url = queue_url
         self.region = region
+        self.session = aioboto3.Session(profile_name="default")
 
     async def get_messages(self):
-        async with aioboto3.client('sqs', region_name=self.region) as client:
+        async with self.session.client('sqs', region_name=self.region) as client:
             response = await client.receive_message(
                 QueueUrl=self.queue_url,
                 MaxNumberOfMessages=10,
@@ -24,7 +25,7 @@ class SQSQueueClient(QueueClient):
             return response.get('Messages', [])
 
     async def add_message(self, message):
-        async with aioboto3.client('sqs', region_name=self.region) as client:
+        async with self.session.client('sqs', region_name=self.region) as client:
             await client.send_message(
                 QueueUrl=self.queue_url,
                 MessageBody=message

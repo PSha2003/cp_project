@@ -8,6 +8,6 @@
 4. Access Django Admin: [http://localhost:8000/admin](http://localhost:8000/admin) (username: admin, password: P@ssw0rd)
 5. Add patterns like credit card regex: `\b\d{16}\b`
 6. Slack Messages with sensitive data get blocked and stored.
-7. To scan a file using the DLP tool - upload a file using scan/file API. example: curl -F 'file=@./scantest.txt' http://127.0.0.1:8000/scan/file/
+7. To scan a file using the DLP tool - upload a file using scan/file API. example: `curl -F 'file=@./scantest.txt' http://127.0.0.1:8000/scan/file/`
 8. Messages from files with sensitive data get stored
-9. Default implementation uses Redis for the message queue. To switch to SQS, set `use_real_sqs = True in  dlp/shared_queue.py`
+9. Default implementation uses Redis for the message queue. To switch to SQS, set `use_real_sqs = True` in  `dlp/shared_queue.py`. Also update `queue_url` and `region`. Set AWS credentials in .aws/credentials.ini

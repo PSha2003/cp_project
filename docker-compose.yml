@@ -37,6 +37,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - .:/code
+      - ~/.aws:/root/.aws:ro
     command: python dlp_consumer/run_consumer.py
     depends_on:
       - web
