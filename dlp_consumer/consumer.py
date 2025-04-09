@@ -29,7 +29,7 @@ class Manager:
                 except Exception as e:
                     print(f"Invalid message format: {e}")
                     continue
-                print(body)
+
                 task_name = body.get('task')
                 args = body.get('args', ())
                 kwargs = body.get('kwargs', {})

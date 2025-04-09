@@ -6,3 +6,4 @@ djangorestframework
 aioboto3
 redis 
 httpx
+uvicorn[standard]

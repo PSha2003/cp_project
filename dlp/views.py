@@ -6,7 +6,6 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
 from .models import Pattern, Message
 from .shared_queue import queue_client
-from asgiref.sync import async_to_sync
 
 
 @csrf_exempt
