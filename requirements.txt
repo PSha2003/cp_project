@@ -1,0 +1,8 @@
+Django >4.0
+requests
+mysqlclient
+aiohttp
+djangorestframework
+aioboto3
+redis 
+httpx
